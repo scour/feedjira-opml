@@ -16,7 +16,10 @@ module Feedjira
 
       element :ownerName, as: :owner_name
       element :ownerEmail, as: :owner_email
-      element :ownerId, as: :owner_id
+
+      element :ownerId, as: :owner_id do |s|
+        URI(s)
+      end
 
       element :docs do |s|
         URI(s)
