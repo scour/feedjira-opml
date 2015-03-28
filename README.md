@@ -1,5 +1,6 @@
 # Feedjira::Opml
 
+[![Gem Version](http://img.shields.io/gem/v/feedjira-opml.svg)](https://rubygems.org/gems/feedjira-opml)
 [![Dependency Status](https://gemnasium.com/farski/feedjira-opml.svg)](https://gemnasium.com/farski/feedjira-opml)
 [![Build Status](https://travis-ci.org/farski/feedjira-opml.svg)](https://travis-ci.org/farski/feedjira-opml)
 [![Code Climate](https://codeclimate.com/github/farski/feedjira-opml/badges/gpa.svg)](https://codeclimate.com/github/farski/feedjira-opml)
