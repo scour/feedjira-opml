@@ -3,9 +3,17 @@
   <head>
     <title>Head Title</title>
     <dateCreated>Sat, 18 Jun 2005 12:11:52 GMT</dateCreated>
+    <dateModified>Sat, 18 Jun 2005 12:11:52 GMT</dateModified>
+    <ownerName>Owner Name</ownerName>
+    <ownerEmail>owner@example.com</ownerEmail>
+    <ownerId>http://www.example.com/opml/owner</ownerId>
+    <docs>http://dev.opml.org/spec2.html</docs>
     <vertScrollState>42</vertScrollState>
     <expansionState>1, 2, 5, 10, 13, 15</expansionState>
-    <docs>http://dev.opml.org/spec2.html</docs>
+    <windowTop>1</windowTop>
+    <windowLeft>2</windowLeft>
+    <windowBottom>3</windowBottom>
+    <windowRight>4</windowRight>
   </head>
   <body>
     <outline text="Outline 1 text" isComment='true' />

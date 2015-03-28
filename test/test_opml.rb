@@ -48,10 +48,6 @@ class TestOPML < Minitest::Test
         assert_equal 15, @basic_feed.head.expansion_state.last
       end
 
-      it 'handles optional head elements when not present' do
-        assert_equal nil, @basic_feed.head.owner_name
-      end
-
       it 'gets the outlines' do
         assert_equal 3, @basic_feed.body.outlines.count
       end
@@ -66,6 +62,43 @@ class TestOPML < Minitest::Test
 
       it 'handles isBreakpoint correctly when not present' do
         assert_equal false, @basic_feed.body.outlines.first.breakpoint?
+      end
+
+      it 'can find the other OPML head elements' do
+        assert @basic_feed.head.date_modified
+        assert @basic_feed.head.owner_name
+        assert @basic_feed.head.owner_email
+        assert @basic_feed.head.owner_id
+        assert @basic_feed.head.window_top
+        assert @basic_feed.head.window_left
+        assert @basic_feed.head.window_bottom
+        assert @basic_feed.head.window_right
+      end
+    end
+
+    describe 'for outlines' do
+      before do
+        file = File.open(File.expand_path('../fixtures/outline.opml', __FILE__), 'r')
+        xml = file.read
+
+        @outline = Feedjira::Feed.parse(xml)
+      end
+      it 'can find the other outline attributes' do
+        outline = @outline.body.outlines.first
+
+        assert outline.type, 'type'
+        assert outline.text, 'text'
+        assert outline.xml_url, 'xml'
+        assert outline.comment?, 'comment'
+        assert outline.breakpoint?, 'breakpoint'
+        assert outline.created, 'created'
+        assert outline.category, 'category'
+        assert outline.description, 'desc'
+        assert outline.html_url, 'html'
+        assert outline.language, 'lang'
+        assert outline.title, 'title'
+        assert outline.version, 'version'
+        assert outline.url, 'url'
       end
     end
 

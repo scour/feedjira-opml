@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+  </head>
+  <body>
+    <outline type='type' text="Outline 1 text" xmlUrl='xmlUrl' isComment='true' isBreakpoint='true' created='Sat, 18 Jun 2005 12:11:52 GMT' category='category' description='description' htmlUrl='htmlUrl' language='lang' title='title' version='2.0' url='url' />
+  </body>
+</opml>
