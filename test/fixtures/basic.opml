@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>Head Title</title>
+    <docs>http://dev.opml.org/spec2.html</docs>
+  </head>
+  <body>
+    <outline text="Outline 1 text" />
+    <outline text="Outline 2 text" />
+    <outline text="Outline 3 text" />
+  </body>
+</opml>
