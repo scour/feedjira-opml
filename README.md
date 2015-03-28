@@ -28,7 +28,7 @@ Feedjira::Feed.parse_with(Feedjira::Parser::OPML, string_of_xml)
 
 ### Output
 
-All elements and attributes are typecast based on the OPML specification. The behavior for handling that don't adhere to the spec is undefined.
+All elements and attributes are typecast based on the OPML specification. The behavior for handling values that don't adhere to the spec is undefined.
 
 ```ruby
 @opml.head.title
