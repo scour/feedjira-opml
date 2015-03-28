@@ -2,10 +2,13 @@
 <opml version="2.0">
   <head>
     <title>Head Title</title>
+    <dateCreated>Sat, 18 Jun 2005 12:11:52 GMT</dateCreated>
+    <vertScrollState>42</vertScrollState>
+    <expansionState>1, 2, 5, 10, 13, 15</expansionState>
     <docs>http://dev.opml.org/spec2.html</docs>
   </head>
   <body>
-    <outline text="Outline 1 text" />
+    <outline text="Outline 1 text" isComment='true' />
     <outline text="Outline 2 text" />
     <outline text="Outline 3 text" />
   </body>

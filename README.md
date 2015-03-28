@@ -6,40 +6,49 @@
 [![Code Climate](https://codeclimate.com/github/farski/feedjira-opml/badges/gpa.svg)](https://codeclimate.com/github/farski/feedjira-opml)
 [![Coverage Status](https://coveralls.io/repos/farski/feedjira-opml/badge.svg)](https://coveralls.io/r/farski/feedjira-opml)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/feedjira/opml`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem registers a new parser with [Feedjira](http://feedjira.com/) which provides basic support for OPML files. It is based on OPML version 2.0, but does not currently support all aspects of the specification (directories, for example, are not supported).
 
-TODO: Delete this and the text above, and describe your gem
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'feedjira-opml'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install feedjira-opml
+Beyond what is provided by [Feedjira](https://github.com/feedjira/feedjira), there is no support for converting OPML files to hashes, or generating valid OPML from other data sources.
 
 ## Usage
 
-TODO: Write usage instructions here
+Since **feedjira-opml** automatically registers its OPML parser with Feedjira, using the standard processing methods should generally yield the desired results.
 
-## Development
+```ruby
+Feedjira::Feed.parse(string_of_xml)
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
+The OPML parser will match on `/\<opml/`, so it won't conflict with `RSS`, `Atom`, or other native Feedjira parsers.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+If its necessary to use the OPML parser explicitly:
 
-## Contributing
+```ruby
+Feedjira::Feed.parse_with(Feedjira::Parser::OPML, string_of_xml)
+```
 
-1. Fork it ( https://github.com/[my-github-username]/feedjira-opml/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+### Output
+
+All elements and attributes are typecast based on the OPML specification. The behavior for handling that don't adhere to the spec is undefined.
+
+```ruby
+@opml.head.title
+@opml.head.owner_name
+@opml.head.date_created # Returns a Time
+@opml.head.expansion_state # Returns an Array
+```
+
+Working with outlines is similar.
+
+```ruby
+outline = @opml.body.outlines.first
+
+url = outline.xml_url # Returns a URI
+```
+
+The `isComment` and `isBreakpoint` attributes are converted to booleans and accessed through convenience methods.
+
+```ruby
+is_comment = outline.comment?
+```
+
+There are certain situations where the spec requires certain values meet some criteria based on other values, (e.g. _"An outline element whose type is link must have a url attribute whose value is an http address."_). These requirements are not currently enforced by the parser.

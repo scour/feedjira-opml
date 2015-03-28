@@ -18,6 +18,36 @@ class TestOPML < Minitest::Test
         assert_equal 'Head Title', @basic_feed.head.title
       end
 
+      it 'gets the vert scroll state as a Numeric' do
+        assert @basic_feed.head.vert_scroll_state.is_a?(Numeric)
+      end
+
+      it 'gets the vert scroll state' do
+        assert_equal 42, @basic_feed.head.vert_scroll_state
+      end
+
+      it 'gets the date created as a Time' do
+        assert_equal Time, @basic_feed.head.date_created.class
+      end
+
+      it 'gets the date created correctly' do
+        time = Time.new(2005, 6, 18, 12, 11, 52, '+00:00')
+
+        assert_equal time, @basic_feed.head.date_created
+      end
+
+      it 'gets the expansion state as an Array' do
+        assert @basic_feed.head.expansion_state.is_a?(Array)
+      end
+
+      it 'gets the expansion state with members' do
+        assert_equal 6, @basic_feed.head.expansion_state.size
+      end
+
+      it 'gets expansion state members as numbers' do
+        assert_equal 15, @basic_feed.head.expansion_state.last
+      end
+
       it 'handles optional head elements when not present' do
         assert_equal nil, @basic_feed.head.owner_name
       end
@@ -28,6 +58,14 @@ class TestOPML < Minitest::Test
 
       it 'gets an outline text' do
         assert_equal 'Outline 1 text', @basic_feed.body.outlines.first.text
+      end
+
+      it 'handles isComment correctly when present' do
+        assert @basic_feed.body.outlines.first.comment?
+      end
+
+      it 'handles isBreakpoint correctly when not present' do
+        assert_equal false, @basic_feed.body.outlines.first.breakpoint?
       end
     end
 
@@ -44,7 +82,10 @@ class TestOPML < Minitest::Test
       end
 
       it 'gets an outline XML url' do
-        assert_equal 'http://www.example.com/outline/1.rss', @list_feed.body.outlines.first.xml_url
+        url = 'http://www.example.com/outline/1.rss'
+        uri = URI(url)
+
+        assert_equal uri, @list_feed.body.outlines.first.xml_url
       end
     end
   end
