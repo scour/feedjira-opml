@@ -17,7 +17,10 @@ module Feedjira
       element :ownerName, as: :owner_name
       element :ownerEmail, as: :owner_email
       element :ownerId, as: :owner_id
-      element :docs
+
+      element :docs do |s|
+        URI(s)
+      end
 
       element :expansionState, as: :expansion_state do |s|
         s.split(',').map{ |x| x.to_f }
