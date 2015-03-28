@@ -1,3 +1,4 @@
+require 'uri'
 require 'feedjira'
 
 require 'feedjira/opml/version'
