@@ -1,7 +1,7 @@
 # Feedjira::Opml
 
 [![Dependency Status](https://gemnasium.com/farski/feedjira-opml.svg)](https://gemnasium.com/farski/feedjira-opml)
-
+[![Build Status](https://travis-ci.org/farski/feedjira-opml.svg)](https://travis-ci.org/farski/feedjira-opml)
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/feedjira/opml`. To experiment with that code, run `bin/console` for an interactive prompt.
 
