@@ -1,10 +1,10 @@
 # Feedjira::Opml
 
 [![Gem Version](http://img.shields.io/gem/v/feedjira-opml.svg)](https://rubygems.org/gems/feedjira-opml)
-[![Dependency Status](https://gemnasium.com/farski/feedjira-opml.svg)](https://gemnasium.com/farski/feedjira-opml)
-[![Build Status](https://travis-ci.org/farski/feedjira-opml.svg)](https://travis-ci.org/farski/feedjira-opml)
-[![Code Climate](https://codeclimate.com/github/farski/feedjira-opml/badges/gpa.svg)](https://codeclimate.com/github/farski/feedjira-opml)
-[![Coverage Status](https://coveralls.io/repos/farski/feedjira-opml/badge.svg)](https://coveralls.io/r/farski/feedjira-opml)
+[![Dependency Status](https://gemnasium.com/scour/feedjira-opml.svg)](https://gemnasium.com/scour/feedjira-opml)
+[![Build Status](https://travis-ci.org/scour/feedjira-opml.svg)](https://travis-ci.org/scour/feedjira-opml)
+[![Code Climate](https://codeclimate.com/github/scour/feedjira-opml/badges/gpa.svg)](https://codeclimate.com/github/scour/feedjira-opml)
+[![Coverage Status](https://coveralls.io/repos/scour/feedjira-opml/badge.svg)](https://coveralls.io/r/scour/feedjira-opml)
 
 This gem registers a new parser with [Feedjira](http://feedjira.com/) which provides basic support for OPML files. It is based on OPML version 2.0, but does not currently support all aspects of the specification (directories, for example, are not supported).
 
