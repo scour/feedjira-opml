@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{OPML parsing with Feedjira}
   spec.description   = %q{Rudimentary OPML parsing classes for Feedjira}
-  spec.homepage      = 'https://github.com/farski/feedjira-opml'
+  spec.homepage      = 'https://github.com/scour/feedjira-opml'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
