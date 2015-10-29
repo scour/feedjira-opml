@@ -26,28 +26,14 @@ module Feedjira
       end
 
       element :expansionState, as: :expansion_state do |s|
-        s.split(',').map{ |x| x.to_f }
+        s.split(",").map(&:to_f)
       end
 
-      element :vertScrollState, as: :vert_scroll_state do |s|
-        s.to_f
-      end
-
-      element :windowTop, as: :window_top do |s|
-        s.to_f
-      end
-
-      element :windowLeft, as: :window_left do |s|
-        s.to_f
-      end
-
-      element :windowBottom, as: :window_bottom do |s|
-        s.to_f
-      end
-
-      element :windowRight, as: :window_right do |s|
-        s.to_f
-      end
+      element :vertScrollState, as: :vert_scroll_state, &:to_f
+      element :windowTop, as: :window_top, &:to_f
+      element :windowLeft, as: :window_left, &:to_f
+      element :windowBottom, as: :window_bottom, &:to_f
+      element :windowRight, as: :window_right, &:to_f
     end
   end
 end

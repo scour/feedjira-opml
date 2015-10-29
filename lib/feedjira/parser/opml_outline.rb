@@ -34,11 +34,11 @@ module Feedjira
       end
 
       def comment?
-        !!is_comment && is_comment == 'true'
+        !!is_comment && is_comment == "true"
       end
 
       def breakpoint?
-        !!is_breakpoint && is_breakpoint == 'true'
+        !!is_breakpoint && is_breakpoint == "true"
       end
     end
   end
