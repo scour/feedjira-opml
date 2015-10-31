@@ -5,4 +5,8 @@ Rake::TestTask.new(:test) do |t|
   t.pattern = "test/**/test_*.rb"
 end
 
-task default: :test
+require "rubocop/rake_task"
+RuboCop::RakeTask.new(:analyze)
+
+task checks: [:test, :analyze]
+task default: :checks
