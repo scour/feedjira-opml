@@ -15,6 +15,8 @@ Beyond what is provided by [Feedjira](https://github.com/feedjira/feedjira), the
 Since **feedjira-opml** automatically registers its OPML parser with Feedjira, using the standard processing methods should generally yield the desired results.
 
 ```ruby
+require 'feedjira/opml'
+
 Feedjira::Feed.parse(string_of_xml)
 ```
 
